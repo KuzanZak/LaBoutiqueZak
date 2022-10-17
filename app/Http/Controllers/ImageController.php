@@ -41,7 +41,7 @@ class ImageController extends Controller
                 'alt' => "",
                 'pageJs' => "",
                 'edit' => "add",
-                'value' => "Add image"
+                'value' => "Ajouter l'image"
             ]
         );
     }
@@ -54,6 +54,10 @@ class ImageController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'url' => ['required', 'unique:url'],
+            'alt' => ['required', 'min:3', 'max:15'],
+        ]);
         $image = new Image();
         $image->url = Storage::putFile('product', $request->file('file'));
         $image->alt = $request->alt;
@@ -92,7 +96,7 @@ class ImageController extends Controller
                 'image' => asset($image->url),
                 'pageJs' => "changeImages",
                 'hidden' => "hidden",
-                'value' => "Update"
+                'value' => "Actualiser"
             ]
         );
     }
