@@ -59,9 +59,13 @@ class ImageController extends Controller
             'alt' => ['required', 'min:3', 'max:15'],
         ]);
         $image = new Image();
-        $image->url = Storage::putFile('product', $request->file('file'));
         $image->alt = $request->alt;
-        $image->save();
+        if (!Storage::exists("product/" . $request->file('file')->getClientOriginalName() . "")) {
+            $image->url = Storage::putFile('product', $request->file('file'), $request->file('file')->getClientOriginalName());
+            // Storage::setVisibility($request->file('file')->getClientOriginalName(), 'public');
+            $image->save();
+        };
+
         return Redirect::route('dashboard/image/create');
     }
 
@@ -117,8 +121,9 @@ class ImageController extends Controller
         $image = image::find($id);
         $image->alt = $request->alt;
         $imageFile = $request->file('file');
-        if (isset($imageFile)) {
-            $image->url = Storage::putFile('product', $request->file('file'));
+
+        if (!Storage::exists("product/" . $request->file('file')->getClientOriginalName() . "") && isset($imageFile)) {
+            $image->url = Storage::putFile('product', $request->file('file'), $request->file('file')->getClientOriginalName());
         };
         $image->save();
         return Redirect::route('dashboard/image');
