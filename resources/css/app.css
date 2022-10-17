@@ -217,10 +217,6 @@ button:focus {
     color: var(--red);
 }
 
-.error-message::first-letter{
-    text-transform: uppercase;
-}
-
 .change-button{
     text-align: center;
     width: 30%;

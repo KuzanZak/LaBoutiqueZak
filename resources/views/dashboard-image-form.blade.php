@@ -20,7 +20,7 @@
     <ul>
         <li class="form-items-dashboard">
             <label for="file">Url :
-                @error('url')
+                @error('file')
                 <span class="error-message">{{ $message}}</span>
                 @enderror
             </label>
