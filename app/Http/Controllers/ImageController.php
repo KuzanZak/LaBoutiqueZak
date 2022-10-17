@@ -20,7 +20,7 @@ class ImageController extends Controller
         return view(
             "dashboard-image",
             [
-                'images' => Image::all(),
+                'images' => Image::all()->sortBy('id'),
                 'admin' => intval(Auth::user()->role_id)
             ]
         );
@@ -38,10 +38,10 @@ class ImageController extends Controller
             [
                 'action' => route('dashboard/image/add'),
                 'hidden' => "",
-                'alt' => "",
+                'alt' => old('alt'),
                 'pageJs' => "",
                 'edit' => "add",
-                'value' => "Add image"
+                'value' => "Ajouter l'image"
             ]
         );
     }
@@ -54,6 +54,10 @@ class ImageController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'file' => ['required', 'mimes:jpg,png', 'max:10000'],
+            'alt' => ['required', 'min:3', 'max:15'],
+        ]);
         $image = new Image();
         $image->url = Storage::putFile('product', $request->file('file'));
         $image->alt = $request->alt;
@@ -92,7 +96,7 @@ class ImageController extends Controller
                 'image' => asset($image->url),
                 'pageJs' => "changeImages",
                 'hidden' => "hidden",
-                'value' => "Update"
+                'value' => "Actualiser"
             ]
         );
     }
@@ -106,6 +110,10 @@ class ImageController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'url' => ['unique:url'],
+            'alt' => ['required', 'min:3', 'max:15'],
+        ]);
         $image = image::find($id);
         $image->alt = $request->alt;
         $imageFile = $request->file('file');

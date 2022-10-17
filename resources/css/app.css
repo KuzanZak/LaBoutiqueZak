@@ -12,6 +12,7 @@
     --white-color: #ffffff;
     --black-color: #000000;
     --light-grey: #919191;
+    --red: #f00020; 
 }
 
 /* NORMALIZER */
@@ -209,6 +210,11 @@ button:focus {
     width: 80%;
     height: 2rem;
     margin: .4rem 0;
+}
+
+.error-message{
+    text-transform: lowercase;
+    color: var(--red);
 }
 
 .change-button{
