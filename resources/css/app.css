@@ -190,11 +190,11 @@ button:focus {
 .data-dashboard{
     font-style: italic;
     word-break: break-all;
+    text-transform: capitalize;
 }
 
 .span-title-dashboard{
     font-style: normal;
-    text-transform: uppercase;
     font-weight: bold;
 }
 

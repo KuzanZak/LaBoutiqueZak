@@ -18,6 +18,9 @@
                     <x-nav-link :href="route('dashboard/image')" :active="request()->routeIs('dashboard/image')">
                         {{ __('Image') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('dashboard/role')" :active="request()->routeIs('dashboard/role')">
+                        {{ __('Role') }}
+                    </x-nav-link>
                 </div>
             </div>
 
@@ -70,6 +73,9 @@
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('dashboard/image')" :active="request()->routeIs('dashboard/image')">
                 {{ __('Image') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('dashboard/role')" :active="request()->routeIs('dashboard/role')">
+                {{ __('Role') }}
             </x-responsive-nav-link>
         </div>
 

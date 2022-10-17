@@ -2,13 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Image;
+use App\Models\Role;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\Storage;
 
-class ImageController extends Controller
+class RoleController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,9 +17,9 @@ class ImageController extends Controller
     public function index()
     {
         return view(
-            "dashboard-image",
+            'dashboard-role',
             [
-                'images' => Image::all()->sortBy('id'),
+                'roles' => Role::all()->sortBy('id'),
                 'admin' => intval(Auth::user()->role_id)
             ]
         );
@@ -34,14 +33,13 @@ class ImageController extends Controller
     public function create()
     {
         return view(
-            "dashboard-image-form",
+            "dashboard-role-form",
             [
-                'action' => route('dashboard/image/add'),
-                'hidden' => "",
-                'alt' => old('alt'),
+                'action' => route('dashboard/role/add'),
+                'role' => old('role'),
                 'pageJs' => "",
                 'edit' => "add",
-                'value' => "Ajouter l'image"
+                'value' => "Ajouter le rôle"
             ]
         );
     }
@@ -55,14 +53,12 @@ class ImageController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'file' => ['required', 'mimes:jpg,png', 'max:10000'],
-            'alt' => ['required', 'min:3', 'max:15'],
+            'role' => ['required', 'min: 5', 'max:20'],
         ]);
-        $image = new Image();
-        $image->url = Storage::putFile('product', $request->file('file'));
-        $image->alt = $request->alt;
-        $image->save();
-        return Redirect::route('dashboard/image/create');
+        $role = new Role();
+        $role->role_name = $request->role;
+        $role->save();
+        return Redirect::route('dashboard/role/create');
     }
 
     /**
@@ -84,18 +80,16 @@ class ImageController extends Controller
      */
     public function edit($id)
     {
-        $image = Image::find($id);
+        $role = Role::find($id);
         return view(
-            'dashboard-image-form',
+            'dashboard-role-form',
             [
-                'images' => Image::all(),
+                'roles' => Role::all(),
                 'admin' => Auth::user()->role_id,
-                'action' => route('dashboard/image/update', $image->id),
-                'alt' => $image->alt,
+                'action' => route('dashboard/role/update', $role->id),
+                'role' => $role->role_name,
+                'pageJs' => "",
                 'edit' => 'update',
-                'image' => asset($image->url),
-                'pageJs' => "changeImages",
-                'hidden' => "hidden",
                 'value' => "Actualiser"
             ]
         );
@@ -111,17 +105,12 @@ class ImageController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'file' => ['nullable', 'mimes:jpg,png', 'max:10000'],
-            'alt' => ['required', 'min:3', 'max:15'],
+            'role' => ['required', 'min: 5', 'max:20'],
         ]);
-        $image = image::find($id);
-        $image->alt = $request->alt;
-        $imageFile = $request->file('file');
-        if (isset($imageFile)) {
-            $image->url = Storage::putFile('product', $request->file('file'));
-        };
-        $image->save();
-        return Redirect::route('dashboard/image');
+        $role = Role::find($id);
+        $role->role_name = $request->role;
+        $role->save();
+        return Redirect::route('dashboard/role');
     }
 
     /**
@@ -132,8 +121,8 @@ class ImageController extends Controller
      */
     public function destroy($id)
     {
-        $image = Image::find($id);
-        $image->delete();
-        return Redirect::route('dashboard/image');
+        $role = Role::find($id);
+        $role->delete();
+        return Redirect::route('dashboard/role');
     }
 }
