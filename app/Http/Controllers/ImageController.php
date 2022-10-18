@@ -61,7 +61,7 @@ class ImageController extends Controller
         $image = new Image();
         $image->alt = $request->alt;
         if (!Storage::exists("product/" . $request->file('file')->getClientOriginalName() . "")) {
-            $image->url = Storage::putFile('product', $request->file('file'), $request->file('file')->getClientOriginalName());
+            $image->url = Storage::putFileAs('product', $request->file('file'), $request->file('file')->getClientOriginalName());
             // Storage::setVisibility($request->file('file')->getClientOriginalName(), 'public');
             $image->save();
         };
@@ -122,9 +122,10 @@ class ImageController extends Controller
         $image->alt = $request->alt;
         $imageFile = $request->file('file');
 
-        if (!Storage::exists("product/" . $request->file('file')->getClientOriginalName() . "") && isset($imageFile)) {
-            $image->url = Storage::putFile('product', $request->file('file'), $request->file('file')->getClientOriginalName());
+        if (isset($imageFile) && !Storage::exists("product/" . $request->file('file')->getClientOriginalName() . "")) {
+            $image->url = Storage::putFileAs('product', $request->file('file'), $request->file('file')->getClientOriginalName());
         };
+
         $image->save();
         return Redirect::route('dashboard/image');
     }
