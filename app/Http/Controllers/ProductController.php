@@ -7,6 +7,7 @@ use App\Models\Image;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 
 class ProductController extends Controller
@@ -37,13 +38,13 @@ class ProductController extends Controller
         return view(
             "dashboard-product-form",
             [
+                'categories' => Category::all()->sortBy('id'),
+                'images' => Image::whereNull('product_id')->get(),
                 'action' => route('dashboard/product/add'),
-                'product_name' => old('product'),
                 'pageJs' => "images",
                 'edit' => "add",
                 'value' => "Ajouter le produit",
-                'categories' => Category::all(),
-                'images' => Image::all(),
+                'product_name' => old('product'),
                 'price' => old('price'),
                 'description' => old('description'),
                 'stock' => old("stock")
