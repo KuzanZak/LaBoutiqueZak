@@ -242,6 +242,14 @@ button:focus {
     display: flex;
 }
 
+.list-category{
+    text-transform: capitalize;
+}
+
+.input-category{
+    margin: .3rem;
+}
+
 @media screen and (min-width: 520px) {
     .list-dashboard{
         grid-template-columns: repeat(2,1fr);
