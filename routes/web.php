@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomePageController;
 use App\Http\Controllers\ImageController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RoleController;
 use Illuminate\Support\Facades\Route;
 
@@ -37,3 +39,17 @@ Route::post('/dashboard/role/add', [RoleController::class, 'store'])->middleware
 Route::get('/dashboard/role/edit_{idrole}', [RoleController::class, 'edit'])->middleware(['auth', 'verified'])->name('dashboard/role/edit');
 Route::post('/dashboard/role/update_{idrole}', [RoleController::class, 'update'])->middleware(['auth', 'verified'])->name('dashboard/role/update');
 Route::get('/dashboard/role/delete_{idrole}', [RoleController::class, 'destroy'])->name('dashboard/role/delete');
+
+Route::get('/dashboard/category', [CategoryController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard/category');
+Route::get('/dashboard/category/create', [CategoryController::class, 'create'])->middleware(['auth', 'verified'])->name('dashboard/category/create');
+Route::post('/dashboard/category/add', [CategoryController::class, 'store'])->middleware(['auth', 'verified'])->name('dashboard/category/add');
+Route::get('/dashboard/category/edit_{idcategory}', [CategoryController::class, 'edit'])->middleware(['auth', 'verified'])->name('dashboard/category/edit');
+Route::post('/dashboard/category/update_{idcategory}', [CategoryController::class, 'update'])->middleware(['auth', 'verified'])->name('dashboard/category/update');
+Route::get('/dashboard/category/delete_{idcategory}', [CategoryController::class, 'destroy'])->name('dashboard/category/delete');
+
+Route::get('/dashboard/product', [ProductController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard/product');
+Route::get('/dashboard/product/create', [ProductController::class, 'create'])->middleware(['auth', 'verified'])->name('dashboard/product/create');
+Route::post('/dashboard/product/add', [ProductController::class, 'store'])->middleware(['auth', 'verified'])->name('dashboard/product/add');
+Route::get('/dashboard/product/edit_{idproduct}', [ProductController::class, 'edit'])->middleware(['auth', 'verified'])->name('dashboard/product/edit');
+Route::post('/dashboard/product/update_{idproduct}', [ProductController::class, 'update'])->middleware(['auth', 'verified'])->name('dashboard/product/update');
+Route::get('/dashboard/product/delete_{idproduct}', [ProductController::class, 'destroy'])->name('dashboard/product/delete');

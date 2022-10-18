@@ -16,10 +16,16 @@
                         {{ __("Page d'accueil") }}
                     </x-nav-link>
                     <x-nav-link :href="route('dashboard/image')" :active="request()->routeIs('dashboard/image')">
-                        {{ __('Image') }}
+                        {{ __('Images') }}
                     </x-nav-link>
                     <x-nav-link :href="route('dashboard/role')" :active="request()->routeIs('dashboard/role')">
-                        {{ __('Role') }}
+                        {{ __('Rôles') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('dashboard/category')" :active="request()->routeIs('dashboard/category')">
+                        {{ __('Catégories') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('dashboard/product')" :active="request()->routeIs('dashboard/product')">
+                        {{ __('Produits') }}
                     </x-nav-link>
                 </div>
             </div>
@@ -72,10 +78,16 @@
                 {{ __("Page d'accueil") }}
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('dashboard/image')" :active="request()->routeIs('dashboard/image')">
-                {{ __('Image') }}
+                {{ __('Images') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('dashboard/role')" :active="request()->routeIs('dashboard/role')">
-                {{ __('Role') }}
+                {{ __('Rôles') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('dashboard/category')" :active="request()->routeIs('dashboard/category')">
+                {{ __('Catégories') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('dashboard/product')" :active="request()->routeIs('dashboard/product')">
+                {{ __('Produits') }}
             </x-responsive-nav-link>
         </div>
 
