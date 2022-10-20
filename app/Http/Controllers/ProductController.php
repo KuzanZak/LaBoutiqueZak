@@ -60,6 +60,15 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'product_name' => ['required', 'min:5', 'max:255'],
+            'description' => ['required', 'min:20', 'max:255'],
+            'price' => ['required', 'numeric', 'min:1'],
+            'stock' => ['required', 'numeric', 'min:0'],
+            'category' => ['required'],
+            'main' => ['required'],
+        ]);
+
         $product = new Product();
         $product->product_name = $request->product_name;
         $product->description = $request->description;
@@ -95,7 +104,24 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        //
+        $product = Product::find($id);
+        // var_dump($product);
+        // exit;
+        return view(
+            'dashboard-product-form',
+            [
+                'categories' => Category::all()->sortBy('id'),
+                'images' => Image::where('product_id', '=', $product->id)->orWhere('product_id', '=', null,)->get(),
+                'action' => route('dashboard/product/update', $product->id),
+                'edit' => "update",
+                'pageJs' => "",
+                'value' => "Actualiser",
+                'product_name' => $product->product_name,
+                'description' => $product->description,
+                'price' => $product->price,
+                'stock' => $product->stock,
+            ]
+        );
     }
 
     /**
