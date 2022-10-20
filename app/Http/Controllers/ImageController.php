@@ -62,7 +62,6 @@ class ImageController extends Controller
         $image->alt = $request->alt;
         if (!Storage::exists("product/" . $request->file('file')->getClientOriginalName() . "")) {
             $image->url = Storage::putFileAs('product', $request->file('file'), $request->file('file')->getClientOriginalName());
-            // Storage::setVisibility($request->file('file')->getClientOriginalName(), 'public');
             $image->save();
         };
 

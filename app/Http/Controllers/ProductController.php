@@ -7,7 +7,6 @@ use App\Models\Image;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 
 class ProductController extends Controller
@@ -47,7 +46,7 @@ class ProductController extends Controller
                 'product_name' => old('product'),
                 'price' => old('price'),
                 'description' => old('description'),
-                'stock' => old("stock")
+                'stock' => old("stock"),
             ]
         );
     }
@@ -60,6 +59,15 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'product_name' => ['required', 'min:5', 'max:255'],
+            'description' => ['required', 'min:20', 'max:255'],
+            'price' => ['required', 'numeric', 'min:1'],
+            'stock' => ['required', 'numeric', 'min:0'],
+            'category' => ['required'],
+            'main' => ['required'],
+        ]);
+
         $product = new Product();
         $product->product_name = $request->product_name;
         $product->description = $request->description;
@@ -95,7 +103,29 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        //
+        $product = Product::find($id);
+        $images = $product->images;
+        $arrayImages = [];
+        foreach ($images as $image) {
+            $arrayImages[] = $image->id;
+        };
+        return view(
+            'dashboard-product-form',
+            [
+                'categories' => Category::all()->sortBy('id'),
+                'images' => Image::where('product_id', '=', $product->id)->orWhere('product_id', '=', null,)->orWhere('product_id', '=', 0)->get(),
+                'action' => route('dashboard/product/update', $product->id),
+                'pageJs' => "",
+                'value' => "Actualiser",
+                'product_name' => $product->product_name,
+                'description' => $product->description,
+                'price' => $product->price,
+                'stock' => $product->stock,
+                'categoryOfProduct' => $product->category->id,
+                'arrayImages' => $arrayImages,
+                'mainImage' => $product->image_id
+            ]
+        );
     }
 
     /**
@@ -107,7 +137,34 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $product = Product::find($id);
+        foreach ($product->images as $image) {
+            $image->product_id = 0;
+            $image->save();
+        };
+        $request->validate([
+            'product_name' => ['required', 'min:5', 'max:255'],
+            'description' => ['required', 'min:20', 'max:255'],
+            'price' => ['required', 'numeric', 'min:1'],
+            'stock' => ['required', 'numeric', 'min:0'],
+            'category' => ['required'],
+            'main' => ['required'],
+        ]);
+
+        $product->product_name = $request->product_name;
+        $product->description = $request->description;
+        $product->price = $request->price;
+        $product->stock = $request->stock;
+        $product->category_id = $request->category;
+        $product->image_id = $request->main;
+        $product->save();
+
+        foreach ($request->checkbox as $id) {
+            $image = Image::find($id);
+            $image->product_id = $product->id;
+            $image->save();
+        }
+        return Redirect::route('dashboard/product');
     }
 
     /**
@@ -118,6 +175,11 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $product = Product::find($id);
+        foreach ($product->images as $image) {
+            $image->product_id = 0;
+        };
+        $product->delete();
+        return Redirect::route('dashboard/product');
     }
 }
