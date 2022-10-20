@@ -50,7 +50,7 @@
             @foreach ($categories as $category)
             <div class="list-category">
                 <label class="label-category">
-                    <input class="input-category" type=radio name=category value="{{$category->id}}">{{$category->category_name}}
+                    <input class="input-category" type="radio" name="category" value="{{$category->id}}" {{($category->id == $categoryOfProduct) ? 'checked' : ''}}>{{$category->category_name}}
                 </label>
             </div>
             @endforeach
@@ -62,8 +62,8 @@
                 <li class="form-items-dashboard">
                     <img class="image-update" src="{{asset($image->url)}}" alt="{{$image->alt}}">
                     <div class="inputs-images">
-                        <input class="checkbox-image" type="checkbox" name="checkbox[]" value="{{$image->id}}">
-                        <input class="radio-image" type="radio" name="main" value="{{$image->id}}">
+                        <input class="checkbox-image" type="checkbox" name="checkbox[]" value="{{$image->id}}" {{(in_array($image->id, $arrayImages)) ? 'checked' : ''}}>
+                        <input class="radio-image" type="radio" name="main" value="{{$image->id}}" {{($image->id == $mainImage) ? 'checked' : ''}}>
                     </div>
                 </li>
                 @endforeach
