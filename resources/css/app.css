@@ -250,6 +250,41 @@ button:focus {
     margin: .3rem;
 }
 
+/* Table */
+.table{
+    border-top: .12rem solid var(--black-color);
+    border-left: .12rem solid var(--black-color);
+    border-bottom: .12rem solid var(--black-color);
+}
+
+.header-table{
+    background-color: var(--primary-color);
+}
+
+.content-table {
+    padding: 1rem;
+}
+
+.little-cells {
+    text-align: center;
+}
+.middle-cells-header, .little-cells-header, .big-cells-header{
+    border-right: .12rem solid var(--black-color);
+    padding: .8rem;
+}
+
+.middle-cells, .little-cells, .big-cells{
+    border-top: .12rem solid var(--black-color);
+    border-right: .12rem solid var(--black-color);
+    padding: .3rem;
+}
+
+.links:hover, .links:active{
+    text-decoration: underline;
+    background-color: var(--primary-color);
+}
+
+
 @media screen and (min-width: 520px) {
     .list-dashboard{
         grid-template-columns: repeat(2,1fr);

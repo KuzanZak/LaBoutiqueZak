@@ -36,7 +36,16 @@ switch (body) {
             document.getElementById('file').classList.toggle('hidden');
             document.getElementById('submit').value = "Update"
         });
-        break;        
+        break;  
+        case 'hiddenProduct':
+            document.querySelectorAll('td.hidden').forEach(hidden=>{
+                if (screen.width>520) {
+                    hidden.classList.remove("hidden");
+                } else {
+                    hidden.classList.add("hidden");
+                }
+            });
+            break;              
     default:
       console.log(`Sorry, [data-js] is null!.`);
   }

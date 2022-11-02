@@ -22,7 +22,8 @@ class ProductController extends Controller
             'dashboard-product',
             [
                 'products' => Product::all()->sortBy('id'),
-                'admin' => intval(Auth::user()->role_id)
+                'admin' => intval(Auth::user()->role_id),
+                'pageJs' => "hiddenProduct",
             ]
         );
     }
@@ -47,6 +48,9 @@ class ProductController extends Controller
                 'price' => old('price'),
                 'description' => old('description'),
                 'stock' => old("stock"),
+                'categoryOfProduct' => "",
+                'arrayImages' => [],
+                'mainImage' => "",
             ]
         );
     }
