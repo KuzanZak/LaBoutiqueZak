@@ -38,13 +38,17 @@ switch (body) {
         });
         break;  
         case 'hiddenProduct':
-            document.querySelectorAll('td.hidden').forEach(hidden=>{
-                if (screen.width>520) {
-                    hidden.classList.remove("hidden");
+            window.addEventListener("resize", function(e){
+                if (screen.width> 520) {
+                    document.querySelectorAll('td.selected').forEach(hidden=>{
+                        hidden.classList.remove("hidden");
+                    })
                 } else {
-                    hidden.classList.add("hidden");
+                    document.querySelectorAll('td.selected').forEach(hidden=>{
+                        hidden.classList.add("hidden");
+                    })
                 }
-            });
+            })
             break;              
     default:
       console.log(`Sorry, [data-js] is null!.`);
