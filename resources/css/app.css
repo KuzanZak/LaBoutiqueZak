@@ -250,41 +250,6 @@ button:focus {
     margin: .3rem;
 }
 
-/* Table */
-.table{
-    border-top: .12rem solid var(--black-color);
-    border-left: .12rem solid var(--black-color);
-    border-bottom: .12rem solid var(--black-color);
-}
-
-.header-table{
-    background-color: var(--primary-color);
-}
-
-.content-table {
-    padding: 1rem;
-}
-
-.little-cells {
-    text-align: center;
-}
-.middle-cells-header, .little-cells-header, .big-cells-header{
-    border-right: .12rem solid var(--black-color);
-    padding: .8rem;
-}
-
-.middle-cells, .little-cells, .big-cells{
-    border-top: .12rem solid var(--black-color);
-    border-right: .12rem solid var(--black-color);
-    padding: .3rem;
-}
-
-.links:hover, .links:active{
-    text-decoration: underline;
-    background-color: var(--primary-color);
-}
-
-
 @media screen and (min-width: 520px) {
     .list-dashboard{
         grid-template-columns: repeat(2,1fr);
@@ -341,3 +306,60 @@ button:focus {
         width: 10%;
     }
 }
+
+/* Table */
+.table{
+    border-top: .12rem solid var(--black-color);
+    border-left: .12rem solid var(--black-color);
+    border-bottom: .12rem solid var(--black-color);
+    margin: 0 auto;
+}
+
+.header-table{
+    background-color: var(--primary-color);
+}
+
+.content-table {
+    padding: 1rem;
+}
+
+.little-cells {
+    text-align: center;
+}
+.middle-cells-header, .little-cells-header, .big-cells-header{
+    border-right: .12rem solid var(--black-color);
+    padding: 1rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: var(--white-color);
+    text-align: center;
+
+}
+
+.middle-cells, .little-cells, .big-cells{
+    border-top: .12rem solid var(--black-color);
+    border-right: .12rem solid var(--black-color);
+    padding: .8rem;
+}
+
+.links:hover, .links:active{
+    text-decoration: underline;
+    background-color: var(--primary-color);
+}
+
+@media screen and (min-width: 520px) {
+    .little-cells, .middle-cells{
+        padding: 1.2rem;
+    }
+    .middle-cells-header, .little-cells-header{
+        padding: 1.4rem;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .little-cells{
+        width: 18%;
+    }
+}
+
+

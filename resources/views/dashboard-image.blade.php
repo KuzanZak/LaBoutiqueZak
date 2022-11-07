@@ -14,9 +14,11 @@
 <h2 class="title-dashboard">
     Images
 </h2>
+@if($admin === 1)
 <div class="content-add-link">
     <a href="{{ @route('dashboard/image/create')}}" class="add-button">Ajouter</a>
 </div>
+@endif
 <ul class="list-dashboard">
     @foreach($images as $image)
     <li class="list-items-dashboard">

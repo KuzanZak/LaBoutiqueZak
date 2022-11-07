@@ -20,7 +20,7 @@ class RoleController extends Controller
             'dashboard-role',
             [
                 'roles' => Role::all()->sortBy('id'),
-                'admin' => intval(Auth::user()->role_id)
+                'admin' => intval(Auth::user()->role_id),
             ]
         );
     }

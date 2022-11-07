@@ -7,6 +7,8 @@ window.Alpine = Alpine;
 Alpine.start();
 
 const body = document.body.getAttribute('data-js'); 
+
+/* Get the value of the checked chekbox to make the radio button valid   */
 function checkedBox($checkbox){
     $checkbox.toggleAttribute('checked'); 
     document.querySelectorAll(`.radio-image[value='${$checkbox.value}']`).forEach(radio => {
@@ -14,6 +16,15 @@ function checkedBox($checkbox){
         radio.checked=false;
     });
 };
+
+/* Remove hidden class from table columns when screen width > 768 px */  
+function displayHiddenColumns(){
+    if (screen.width >= 768) {
+        document.querySelectorAll('td.selected').forEach(hidden=>{
+            hidden.classList.remove("hidden");
+        });
+    };  
+}
 
 switch (body) {
     case 'userJs':
@@ -38,12 +49,10 @@ switch (body) {
         });
         break;  
         case 'hiddenProduct':
+            displayHiddenColumns();         
             window.addEventListener("resize", function(e){
-                if (screen.width> 520) {
-                    document.querySelectorAll('td.selected').forEach(hidden=>{
-                        hidden.classList.remove("hidden");
-                    })
-                } else {
+                displayHiddenColumns(); 
+                if (screen.width < 768 ) {
                     document.querySelectorAll('td.selected').forEach(hidden=>{
                         hidden.classList.add("hidden");
                     })
