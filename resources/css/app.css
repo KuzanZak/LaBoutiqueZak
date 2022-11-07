@@ -357,8 +357,11 @@ button:focus {
 }
 
 @media screen and (min-width: 768px) {
-    .little-cells{
-        width: 18%;
+    .little-cells, .middle-cells{
+        padding: 1rem;
+    }
+    .middle-cells-header, .little-cells-header{
+        padding: 1.2rem;
     }
 }
 
