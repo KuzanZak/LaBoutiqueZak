@@ -6,7 +6,7 @@
 :root {
     /* Sizes */
     font-size: 12px;
-    --container-width: 1350px;
+    --container-width: 1499px;
     /* Colors */
     --header-bg-color : #008037;
     --primary-color: #5EFF8C;
@@ -105,7 +105,7 @@ button:focus {
 .cart-nb {
     position: absolute;
     top: -.5rem;
-    right: -.5rem;
+    right: -.6rem;
     display: flex;
     width: 1.5rem;
     aspect-ratio: 1/1;
@@ -121,7 +121,8 @@ button:focus {
     color: var(--black-color);
     display: grid;
     grid-template-columns: 1fr 2.1rem;
-    padding-top: .5rem;
+    margin: 0 1rem;
+    padding-bottom: .5rem;
 }
 
 .autocomplete{
@@ -151,31 +152,96 @@ button:focus {
 }
 
 @media screen and (min-width: 520px) {
-    .header-logo {
-        width: 15%;
-    }
-}
-
-@media screen and (min-width: 768px) {
     .header-content{
         display: grid;
-        grid-template-columns: 3fr 7fr 1fr 1fr;
-        padding: 1rem;
-        padding-bottom: 1.3rem;
-    }
-    .header-logo {
-        width: 20%;
+        grid-template-columns: 20% 60% 10% 10%;
     }
 
-    .header-form{
-        width: 100%;
-        margin: 0 auto;
+    .account {
+        font-size: 1.2rem;
+        right: 3.5rem;
+        top: calc(50% - 2rem / 2);
+    }
+
+    .cart {
+        right: .5rem;
+        top: calc(50% - 2.5rem / 2);
+    }
+    .cart-img {
+        width: 2.5rem;
+    }
+
+    .cart-nb {
+        top: -.7rem;
+        right: -.7rem;
+        width: 2rem;
+    }
+
+    .header-logo {
+        width: 90%;
     }
 
     .input-product{
         height: 3rem;
     }
+    .input-button-product {
+        padding: 0 1rem;
+    }
+
+    .header-form{
+        margin: auto 0;
+        padding: 1.5rem;
+    }
+  
+}
+
+@media screen and (min-width: 768px) {
+    .header-content{
+        display: grid;
+        grid-template-columns: 10% 70% 10% 10%;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .header-form{
+        margin: auto 0;
+    }
+
+    .account {
+        font-size: 1.5rem;
+        right: 4rem;
+        top: calc(50% - 2.5rem / 2);
+    }
+
+    .cart {
+        top: calc(50% - 3rem / 2);
+    }
+
+    .cart-img {
+        width: 3rem;
+        background: none;
+    }
+
+    .cart-nb {
+        top: -1.2rem;
+        right: -1rem;
+        width: 3rem;
+    }
+    .input-product{
+        height: 3.5rem;
+    }
+
+    .input-button-product {
+        padding: 0 1.5rem;
+    }
     
+}
+
+@media screen and (min-width: 1100px) {
+    .account {
+        right: calc(10% - 10rem / 2);
+    }
 }
 
 
