@@ -3,6 +3,7 @@
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomePageController;
 use App\Http\Controllers\ImageController;
+use App\Http\Controllers\ListProductsController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RoleController;
 use Illuminate\Support\Facades\Route;
@@ -18,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [HomePageController::class, "index"])->name('homepage');
+Route::get('/', [ListProductsController::class, "index"])->name('list-products');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

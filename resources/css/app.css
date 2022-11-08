@@ -14,6 +14,7 @@
     --black-color: #000000;
     --light-grey: #919191;
     --red: #f00020; 
+    --yellow: #FFEA00; 
 }
 
 /* NORMALIZER */
@@ -162,6 +163,10 @@ button:focus {
         right: 3.5rem;
         top: calc(50% - 2rem / 2);
     }
+    
+    .header-logo {
+        width: 90%;
+    }
 
     .cart {
         right: .5rem;
@@ -177,8 +182,9 @@ button:focus {
         width: 2rem;
     }
 
-    .header-logo {
-        width: 90%;
+    .header-form{
+        margin: auto 0;
+        padding: 1.5rem;
     }
 
     .input-product{
@@ -186,11 +192,6 @@ button:focus {
     }
     .input-button-product {
         padding: 0 1rem;
-    }
-
-    .header-form{
-        margin: auto 0;
-        padding: 1.5rem;
     }
   
 }
@@ -204,20 +205,17 @@ button:focus {
         padding: 0;
     }
 
-    .header-form{
-        margin: auto 0;
-    }
-
+    
     .account {
         font-size: 1.5rem;
         right: 4rem;
         top: calc(50% - 2.5rem / 2);
     }
-
+    
     .cart {
         top: calc(50% - 3rem / 2);
     }
-
+    
     .cart-img {
         width: 3rem;
         background: none;
@@ -228,6 +226,11 @@ button:focus {
         right: -1rem;
         width: 3rem;
     }
+
+    .header-form{
+        margin: auto 0;
+    }
+
     .input-product{
         height: 3.5rem;
     }
@@ -243,8 +246,6 @@ button:focus {
         right: calc(10% - 10rem / 2);
     }
 }
-
-
 
 
 /* DASHBOARD */
@@ -470,3 +471,55 @@ button:focus {
 }
 
 
+/* List of Products */
+.list-products-items{
+    display : grid;
+    grid-template-columns: repeat(2, 50%);
+    gap: 2rem;
+    width: 80%;
+    margin: 1rem auto;
+    line-height: 1.8rem;
+}
+
+
+.title-product{
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.rating-product{
+    color: var(--yellow);
+}
+
+.price-product{
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--red);
+}
+
+
+@media screen and (min-width: 520px) {
+    .list-products{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .list-products{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .list-products-items{
+        /* line-height: 1.5rem; */
+    }
+    .title-product{
+        font-size: 1.5rem;
+    }
+    .rating-product{
+        font-size: 1.3rem;
+    }
+    .price-product{
+        font-size: 1.8rem;
+    }
+}
