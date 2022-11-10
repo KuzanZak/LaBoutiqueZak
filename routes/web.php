@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AccountController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomePageController;
 use App\Http\Controllers\ImageController;
@@ -7,6 +8,7 @@ use App\Http\Controllers\ListProductsController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RoleController;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +21,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [ListProductsController::class, "index"])->name('list-products');
+Route::get('/', [HomePageController::class, "index"])->name('homepage');
+Route::get('/products', [ListProductsController::class, "index"])->name('list-products');
+
+Route::get('/dashboard/account', [AccountController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard/account');
+Route::get('/dashboard/account/edit_{iduser}', [AccountController::class, 'edit'])->middleware(['auth', 'verified'])->name('dashboard/account/edit');
+Route::post('/dashboard/account/update_{iduser}', [AccountController::class, 'update'])->middleware(['auth', 'verified'])->name('dashboard/account/update');
+
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');

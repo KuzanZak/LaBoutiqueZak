@@ -470,6 +470,24 @@ button:focus {
     }
 }
 
+/* Account dashboard */
+.list-account{
+    font-size: 1.2rem;
+    line-height: 2;
+}
+
+.list-account-items{
+   display: flex;
+}
+
+.list-account-items-modify{
+    display: flex;
+    justify-content: flex-end;
+}
+.modify-button-account:hover{
+    background-color: var(--primary-color);
+}
+
 
 /* List of Products */
 .list-products-items{
