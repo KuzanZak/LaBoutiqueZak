@@ -12,32 +12,60 @@
 @endif
 
 <h2 class="title-dashboard">
-    Account
+    Mon compte
 </h2>
 <ul class="list-account">
     <li class="list-account-items">
-        <p>Civilité : {{Auth::user()->sexe}}</p>
-    </li>
-    <li class="list-account-items">
-        <p>Nom : {{Auth::user()->name}}</p>
-    </li>
-    <li class="list-account-items">
-        <p>Prénom : {{Auth::user()->firstname}}</p>
-    </li>
-    <li class="list-account-items">
-        <p>Email : {{Auth::user()->email}}</p>
-    </li>
-    <li class="list-account-items">
-        <p>Mot de passe : *******</p>
-    </li>
-    <li class="list-account-items">
-        <p>Téléphone : {{Auth::user()->phone_number}}</p>
-    </li>
-    <li class="list-account-items">
-        <p>Date de naissance : {{Auth::user()->date_of_birth}}</p>
-    </li>
-    <li class="list-account-items-modify">
+        <div class="list-account-datas">
+            <h3 class="title-list-account">Civilité :</h3>
+            <p> {{Auth::user()->sexe === "man" ? "Homme" : "Femme"}}</p>
+        </div>
         <a href="{{ @route('dashboard/account/edit', Auth::user()->id)}}" class="modify-button-account">Modifier</a>
     </li>
+    <li class="list-account-items">
+        <div class="list-account-datas">
+            <h3 class="title-list-account">Nom :</h3>
+            <p>{{Auth::user()->name}}</p>
+        </div>
+        <a href="{{ @route('dashboard/account/edit', Auth::user()->id)}}" class="modify-button-account">Modifier</a>
+    </li>
+    <li class="list-account-items">
+        <div class="list-account-datas">
+            <h3 class="title-list-account">Prénom :</h3>
+            <p>{{Auth::user()->firstname}}</p>
+        </div>
+        <a href="{{ @route('dashboard/account/edit', Auth::user()->id)}}" class="modify-button-account">Modifier</a>
+    </li>
+    <li class="list-account-items">
+        <div class="list-account-datas">
+            <h3 class="title-list-account">Email :</h3>
+            <p>{{Auth::user()->email}}</p>
+        </div>
+        <a href="{{ @route('dashboard/account/edit', Auth::user()->id)}}" class="modify-button-account">Modifier</a>
+    </li>
+    <li class="list-account-items">
+        <div class="list-account-datas">
+            <h3 class="title-list-account">Mot de passe :</h3>
+            <p>*******</p>
+        </div>
+        <a href="{{ @route('dashboard/account/edit', Auth::user()->id)}}" class="modify-button-account">Modifier</a>
+    </li>
+    <li class="list-account-items">
+        <div class="list-account-datas">
+            <h3 class="title-list-account">Téléphone :</h3>
+            <p>{{Auth::user()->phone_number}}</p>
+        </div>
+        <a href="{{ @route('dashboard/account/edit', Auth::user()->id)}}" class="modify-button-account">Modifier</a>
+    </li>
+    <li class="list-account-items">
+        <div class="list-account-datas">
+            <h3 class="title-list-account">Date de naissance :</h3>
+            <p>{{Auth::user()->date_of_birth}}</p>
+        </div>
+        <a href="{{ @route('dashboard/account/edit', Auth::user()->id)}}" class="modify-button-account">Modifier</a>
+    </li>
+    <!-- <li class="list-account-items-modify">
+        <a href="{{ @route('dashboard/account/edit', Auth::user()->id)}}" class="modify-button-account">Modifier</a>
+    </li> -->
 </ul>
 @endsection

@@ -20,12 +20,12 @@
 <form action="{{ @route('dashboard/account/update', Auth::id())}}" method="post">
     @csrf
     <ul class="form-list-dashboard">
-        <li class="form-items-dashboard">
-            <label for="sexe">Sexe : </label>
-            <select name="sexe" id="sexe-select">
+        <li class="form-items-dashboar-test">
+            <label for="sexe">Civilité : </label>
+            <select name="sexe" id="sexe" class="select-sexe">
                 <option value="{{Auth::user()->sexe}}">--Civilité--</option>
-                <option value="man">M.</option>
-                <option value="women">Mme.</option>
+                <option value="man" {{Auth::user()->sexe === "man" ? "selected" : ""}}>M.</option>
+                <option value="women" {{Auth::user()->sexe === "women" ? "selected" : ""}}>Mme.</option>
             </select>
         </li>
         <li class="form-items-dashboard">
@@ -46,7 +46,7 @@
         </li>
         <li class="form-items-dashboard">
             <label for="phone_number">Téléphone : </label>
-            <input class="input-dashboard" type="number" id="phone_number" name="phone_number" min="10" max="10" value="{{Auth::user()->phone_number}}">
+            <input class="input-dashboard" type="text" id="phone_number" name="phone_number" min="10" max="10" value="{{Auth::user()->phone_number}}">
         </li>
         <li class="form-items-dashboard">
             <label for="date_of_birth">Date de naissance : </label>

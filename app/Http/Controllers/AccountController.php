@@ -72,16 +72,26 @@ class AccountController extends Controller
     public function update(Request $request, $id)
     {
         //request validate
+        $request->validate([
+            'name' => ['required', 'min:2', 'max:100'],
+            'firstname' => ['required', 'min:2', 'max:100'],
+            'sexe' => ['required'],
+            'email' => ['required', 'email:rfc,dns'],
+            'phone_number' => ['required', 'numeric', 'regex:/(06)|(07)[0-9]{8}/', 'digits:10'],
+            'date_of_birth' => ['required', 'date'],
+        ]);
         $user = User::find($id);
-        // $user->sexe = $request->sexe;
+        $user->sexe = $request->sexe;
         $user->name = $request->name;
         $user->firstname = $request->firstname;
         $user->email = $request->email;
         $user->phone_number = $request->phone_number;
-        $user->password = $request->password;
+        // $user->password = $request->password;
         $user->date_of_birth = $request->date_of_birth;
-        // $user->save();
-        return view('dashboard/account');
+        $user->save();
+        // var_dump($request->phone_number);
+        // exit;
+        return view('dashboard-account');
     }
 
     /**
