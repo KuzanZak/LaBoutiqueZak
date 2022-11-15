@@ -31,7 +31,7 @@ Route::post('/dashboard/account/update_{iduser}', [AccountController::class, 'up
 
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return view('dashboard-account');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 require __DIR__ . '/auth.php';
