@@ -277,6 +277,7 @@ button:focus {
 
 .add-button, .back-button{
     background-color: var(--primary-color);
+    border: .1rem solid var(--black-color);
     color: white;
     font-weight: bold;
     padding: .3rem;
@@ -425,27 +426,23 @@ button:focus {
     background-color: var(--primary-color);
 }
 
-.content-table {
-    padding: 1rem;
-}
-
 .little-cells {
     text-align: center;
 }
+
 .middle-cells-header, .little-cells-header, .big-cells-header{
     border-right: .12rem solid var(--black-color);
-    padding: 1rem;
+    padding: .8rem;
     text-transform: uppercase;
     font-weight: bold;
     color: var(--white-color);
     text-align: center;
-
 }
 
 .middle-cells, .little-cells, .big-cells{
     border-top: .12rem solid var(--black-color);
     border-right: .12rem solid var(--black-color);
-    padding: .8rem;
+    padding: .5rem;
 }
 
 .links:hover, .links:active{
@@ -483,6 +480,10 @@ button:focus {
     border-bottom:.1rem solid var(--light-grey);
 }
 
+.list-account-items:last-child{
+    border: none;
+}
+
 .list-account-datas{
    display: grid;
    grid-template-columns: 1fr;
@@ -490,36 +491,8 @@ button:focus {
    margin: 1.5rem 0;
 }
 
-.list-account-items:last-child{
-    border: none;
-}
-
 .title-list-account{
     font-weight: bold;
-}
-
-.list-account-items-modify{
-    display: flex;
-    justify-content: flex-end;
-}
-.form-list-dashboard{
-    margin-top: 1rem ;
-    border: .1rem solid var(--light-grey);
-}
-.form-items-dashboar-test{
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    text-transform: uppercase;
-    font-weight: bold;
-    margin: 1.3rem 1rem;
-}
-
-
-
-.select-sexe{
-    width: 28%;
-    margin: 0 1rem;
 }
 
 .modify-button-account{
@@ -529,8 +502,29 @@ button:focus {
     border:.1rem solid var(--black-color);
     margin: 1rem;
 }
+
 .modify-button-account:hover{
-    background-color: var(--primary-color);
+    background-color: var(--black-color);
+}
+
+/* Account form dashboard */ 
+.form-list-dashboard{
+    margin-top: 1rem ;
+    border: .1rem solid var(--light-grey);
+}
+
+.form-items-dashboard-civility{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin: 1.3rem 1rem;
+}
+
+.select-sexe{
+    width: 28%;
+    margin: 0 1rem;
 }
 
 @media screen and (min-width: 520px) {
@@ -543,7 +537,13 @@ button:focus {
         width: 16%;
     }
 }
+
 @media screen and (min-width: 768px) {
+    .form-list-dashboard{
+        width: 90%;
+        margin: 1rem auto;
+    }
+    
     .list-account{
         width: 60%;
         margin: 0 auto;

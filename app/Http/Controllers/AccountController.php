@@ -86,12 +86,10 @@ class AccountController extends Controller
         $user->firstname = $request->firstname;
         $user->email = $request->email;
         $user->phone_number = $request->phone_number;
-        // $user->password = $request->password;
+        $user->password =  Hash::make($request->password);
         $user->date_of_birth = $request->date_of_birth;
         $user->save();
-        // var_dump($request->phone_number);
-        // exit;
-        return view('dashboard-account');
+        return Redirect::route('dashboard/account');
     }
 
     /**

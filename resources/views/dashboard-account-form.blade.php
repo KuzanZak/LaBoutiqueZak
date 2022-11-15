@@ -20,7 +20,7 @@
 <form action="{{ @route('dashboard/account/update', Auth::id())}}" method="post">
     @csrf
     <ul class="form-list-dashboard">
-        <li class="form-items-dashboar-test">
+        <li class="form-items-dashboard-civility">
             <label for="sexe">Civilité : </label>
             <select name="sexe" id="sexe" class="select-sexe">
                 <option value="{{Auth::user()->sexe}}">--Civilité--</option>

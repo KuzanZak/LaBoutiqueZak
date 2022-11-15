@@ -64,8 +64,5 @@
         </div>
         <a href="{{ @route('dashboard/account/edit', Auth::user()->id)}}" class="modify-button-account">Modifier</a>
     </li>
-    <!-- <li class="list-account-items-modify">
-        <a href="{{ @route('dashboard/account/edit', Auth::user()->id)}}" class="modify-button-account">Modifier</a>
-    </li> -->
 </ul>
 @endsection
