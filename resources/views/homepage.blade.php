@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
@@ -13,7 +13,7 @@
 <body>
     <header class="header">
         <div class="header-content">
-            <a href="#">
+            <a href="#" class="header-link-logo">
                 <img class="header-logo" src="{{ URL::asset('/img/logo-transparent-png.png') }}" alt="la boutique logo">
             </a>
             <a class="account" href="{{ @route('register') }}">Mon compte</a>
