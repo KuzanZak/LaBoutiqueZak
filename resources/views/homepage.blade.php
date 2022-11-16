@@ -10,7 +10,7 @@
     @vite('resources/css/app.css')
 </head>
 
-<body>
+<body data-js="@yield('pageJs')">
     <header class="header">
         <div class="header-content">
             <a href="#" class="header-link-logo">

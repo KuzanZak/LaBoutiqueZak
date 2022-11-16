@@ -586,8 +586,18 @@ button:focus {
     }
 }
 
-
 /* List of Products */
+.sort-by-filter{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.sort_by{
+    border-color: var(--light-grey);
+}
+
 .list-products-items{
     display : grid;
     grid-template-columns: repeat(2, 50%);

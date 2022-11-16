@@ -18,6 +18,7 @@ class ListProductsController extends Controller
             'list-products',
             [
                 'products' => Product::all()->sortBy('id'),
+                'pageJs' => "test",
             ]
         );
     }
@@ -87,4 +88,14 @@ class ListProductsController extends Controller
     {
         //
     }
+
+    // public function sortByPriceDesc()
+    // {
+    //     return view(
+    //         'list-products',
+    //         [
+    //             'products' => Product::all()->sortBy('id'),
+    //         ]
+    //     );
+    // }
 }
