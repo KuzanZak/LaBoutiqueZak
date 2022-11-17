@@ -4,20 +4,41 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Symfony\Component\Console\Input\Input;
 
 class ListProductsController extends Controller
 {
+    public $sorting;
+
+    // public function mount()
+    // {
+    //     $this->sorting = 'best-selling';
+    // }
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+    
+        var_dump($request->input('sorting'));
+        if ($this->sorting == "price-ascending") {
+            $products  = Product::orderBy('price', 'ASC');
+        } else if ($this->sorting == "price-descending") {
+            $products  = Product::orderBy('price', 'DESC');
+        } else if ($this->sorting == "created-ascending") {
+            $products  = Product::orderBy('created_at', 'ASC');
+        } else if ($this->sorting == "created-descending") {
+            $products  = Product::orderBy('created_at', 'DESC');
+        } else {
+            $products = Product::all()->sortBy('id');
+        }
         return view(
             'list-products',
             [
-                'products' => Product::all()->sortBy('id'),
+                'products' => $products,
                 'pageJs' => "test",
             ]
         );

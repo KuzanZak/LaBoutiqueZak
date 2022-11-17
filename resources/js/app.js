@@ -60,10 +60,13 @@ switch (body) {
             })
             break; 
         case 'test':
-            document.getElementById('sort_by').addEventListener("click", function(event){
-                
-                console.log(event.target.value);
-            });
+
+            // document.getElementById('sort_by').addEventListener("click", function(event){
+            //     document.querySelectorAll('.list-products-items').forEach(product => {
+            //         console.log(product);
+            //     })
+            //     console.log(event.target.value);
+            // });
             break;             
     default:
       console.log(`Sorry, [data-js] is null!.`);

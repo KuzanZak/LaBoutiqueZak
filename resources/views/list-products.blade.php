@@ -4,15 +4,17 @@
 
 <section class="page-product">
     <div class="sort-by-filter">
-        <select name="sort_by" id="sort_by" class="sort_by" data-default-sort="created-descending">
-            <option value="best-selling">Meilleures ventes</option>
+        <form method="post" enctype="multipart/form-data">
+            <select name="sorting" id="sort_by" class="sort_by" data-default-sort="created-descending">
+                <!-- <option value="best-selling">Meilleures ventes</option>
             <option value="title-ascending">Par ordre alphabétique : A-Z</option>
-            <option value="title-descending">Par ordre alphabétique : Z-A</option>
-            <option value="price-ascending">Par prix : Ordre croissant</option>
-            <option value="price-descending">Par prix : Ordre décroissant</option>
-            <option value="created-ascending">Par date : du moins récent au plus récent</option>
-            <option value="created-descending">Par date : du plus récent au moins récent</option>
-        </select>
+            <option value="title-descending">Par ordre alphabétique : Z-A</option> -->
+                <option value="price-ascending">Par prix : Ordre croissant</option>
+                <option value="price-descending">Par prix : Ordre décroissant</option>
+                <option value="created-ascending">Par date : du moins récent au plus récent</option>
+                <option value="created-descending">Par date : du plus récent au moins récent</option>
+            </select>
+        </form>
     </div>
     <ul class="list-products">
         @foreach($products as $product)
