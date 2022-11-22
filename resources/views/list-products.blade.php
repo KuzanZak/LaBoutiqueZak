@@ -4,8 +4,8 @@
 
 <section class="page-product">
     <div class="sort-by-filter">
-        <form method="post" enctype="multipart/form-data">
-            <select name="sorting" id="sort_by" class="sort_by" data-default-sort="created-descending">
+        <form action="{{$action}}" method="post" enctype="multipart/form-data">
+            <select name="sorting" id="sorting" class="sort_by" data-default-sort="created-descending">
                 <!-- <option value="best-selling">Meilleures ventes</option>
             <option value="title-ascending">Par ordre alphabétique : A-Z</option>
             <option value="title-descending">Par ordre alphabétique : Z-A</option> -->

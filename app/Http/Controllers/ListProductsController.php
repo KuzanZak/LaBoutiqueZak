@@ -4,17 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
-use Symfony\Component\Console\Input\Input;
 
 class ListProductsController extends Controller
 {
-    public $sorting;
-
-    // public function mount()
-    // {
-    //     $this->sorting = 'best-selling';
-    // }
-
     /**
      * Display a listing of the resource.
      *
@@ -22,16 +14,41 @@ class ListProductsController extends Controller
      */
     public function index(Request $request)
     {
-    
-        var_dump($request->input('sorting'));
-        if ($this->sorting == "price-ascending") {
-            $products  = Product::orderBy('price', 'ASC');
-        } else if ($this->sorting == "price-descending") {
-            $products  = Product::orderBy('price', 'DESC');
-        } else if ($this->sorting == "created-ascending") {
-            $products  = Product::orderBy('created_at', 'ASC');
-        } else if ($this->sorting == "created-descending") {
-            $products  = Product::orderBy('created_at', 'DESC');
+        $sorting  = $request->sorting;
+        // var_dump($_GET["sorting"]);
+
+        if ($request->sorting == "price-ascending") {
+            $products  = Product::orderBy('price', 'ASC')->get();
+        } else if ($request->sorting == "price-descending") {
+            $products  = Product::orderBy('price', 'DESC')->get();
+        } else if ($request->sorting == "created-ascending") {
+            $products  = Product::orderBy('created_at', 'ASC')->get();
+        } else if ($request->sorting == "created-descending") {
+            $products  = Product::orderBy('created_at', 'DESC')->get();
+        } else {
+            $products = Product::all()->sortBy('id');
+        }
+        return view(
+            'list-products',
+            [
+                'products' => $products,
+                'pageJs' => "test",
+                'action' => "",
+            ]
+        );
+    }
+
+    public function sortProducts(Request $request)
+    {
+        var_dump($request->sorting);
+        if ($request->sorting == "price-ascending") {
+            $products  = Product::orderBy('price', 'ASC')->get();
+        } else if ($request->sorting == "price-descending") {
+            $products  = Product::orderBy('price', 'DESC')->get();
+        } else if ($request->sorting == "created-ascending") {
+            $products  = Product::orderBy('created_at', 'ASC')->get();
+        } else if ($request->sorting == "created-descending") {
+            $products  = Product::orderBy('created_at', 'DESC')->get();
         } else {
             $products = Product::all()->sortBy('id');
         }
