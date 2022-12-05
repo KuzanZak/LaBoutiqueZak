@@ -67,6 +67,12 @@ switch (body) {
             //     })
             //     console.log(event.target.value);
             // });
+            document.getElementById('sorting').addEventListener('change', function(event){
+                document.getElementById('form-sorting').submit();
+                const constante = localStorage.getItem("sort_by");
+                localStorage.setItem(constante, event.target.value);
+                console.log(constante); 
+            })
             break;             
     default:
       console.log(`Sorry, [data-js] is null!.`);

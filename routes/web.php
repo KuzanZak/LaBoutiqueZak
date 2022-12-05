@@ -24,7 +24,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomePageController::class, "index"])->name('homepage');
 
 Route::get('/products', [ListProductsController::class, "index"])->name('list-products');
-// Route::get('/products/sortProducts', [ListProductsController::class, "sortProducts"])->name('list-products/sortProducts');
 
 Route::get('/dashboard/account', [AccountController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard/account');
 Route::get('/dashboard/account/edit_{iduser}', [AccountController::class, 'edit'])->middleware(['auth', 'verified'])->name('dashboard/account/edit');

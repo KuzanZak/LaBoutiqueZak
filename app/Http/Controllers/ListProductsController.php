@@ -15,7 +15,6 @@ class ListProductsController extends Controller
     public function index(Request $request)
     {
         $sorting  = $request->sorting;
-        var_dump($sorting);
 
         if ($sorting == "price-ascending") {
             $products  = Product::orderBy('price', 'ASC')->get();
@@ -33,32 +32,9 @@ class ListProductsController extends Controller
             [
                 'products' => $products,
                 'pageJs' => "test",
+                'sorting' => $sorting
             ]
         );
-    }
-
-    public function sortProducts(Request $request)
-    {
-        var_dump($request->sorting);
-        if ($request->sorting == "price-ascending") {
-            $products  = Product::orderBy('price', 'ASC')->get();
-        } else if ($request->sorting == "price-descending") {
-            $products  = Product::orderBy('price', 'DESC')->get();
-        } else if ($request->sorting == "created-ascending") {
-            $products  = Product::orderBy('created_at', 'ASC')->get();
-        } else if ($request->sorting == "created-descending") {
-            $products  = Product::orderBy('created_at', 'DESC')->get();
-        } else {
-            $products = Product::all()->sortBy('id');
-        }
-        return view(
-            'list-products',
-            [
-                'products' => $products,
-                'pageJs' => "test",
-            ]
-        );
-        // return redirect()->route('list-products', ['products' => $products], ['pageJs' => "test"]);
     }
 
     /**
