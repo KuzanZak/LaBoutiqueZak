@@ -3,8 +3,10 @@
 @section('content')
 
 <section class="page-product">
+    <h1>Tous les produits</h1>
     <div class="sort-by-filter">
-        <form action="{{$action}}" method="post" enctype="multipart/form-data">
+        <form action="{{@route('list-products')}}" method="get" enctype="multipart/form-data">
+            @csrf
             <select name="sorting" id="sorting" class="sort_by" data-default-sort="created-descending">
                 <!-- <option value="best-selling">Meilleures ventes</option>
             <option value="title-ascending">Par ordre alphabétique : A-Z</option>
@@ -14,6 +16,7 @@
                 <option value="created-ascending">Par date : du moins récent au plus récent</option>
                 <option value="created-descending">Par date : du plus récent au moins récent</option>
             </select>
+            <button>submit</button>
         </form>
     </div>
     <ul class="list-products">

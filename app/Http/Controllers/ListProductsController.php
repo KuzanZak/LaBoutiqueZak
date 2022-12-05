@@ -15,15 +15,15 @@ class ListProductsController extends Controller
     public function index(Request $request)
     {
         $sorting  = $request->sorting;
-        // var_dump($_GET["sorting"]);
+        var_dump($sorting);
 
-        if ($request->sorting == "price-ascending") {
+        if ($sorting == "price-ascending") {
             $products  = Product::orderBy('price', 'ASC')->get();
-        } else if ($request->sorting == "price-descending") {
+        } else if ($sorting == "price-descending") {
             $products  = Product::orderBy('price', 'DESC')->get();
-        } else if ($request->sorting == "created-ascending") {
+        } else if ($sorting == "created-ascending") {
             $products  = Product::orderBy('created_at', 'ASC')->get();
-        } else if ($request->sorting == "created-descending") {
+        } else if ($sorting == "created-descending") {
             $products  = Product::orderBy('created_at', 'DESC')->get();
         } else {
             $products = Product::all()->sortBy('id');
@@ -33,7 +33,6 @@ class ListProductsController extends Controller
             [
                 'products' => $products,
                 'pageJs' => "test",
-                'action' => "",
             ]
         );
     }
@@ -59,6 +58,7 @@ class ListProductsController extends Controller
                 'pageJs' => "test",
             ]
         );
+        // return redirect()->route('list-products', ['products' => $products], ['pageJs' => "test"]);
     }
 
     /**
