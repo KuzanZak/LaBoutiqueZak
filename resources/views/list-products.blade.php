@@ -5,7 +5,7 @@
 <section class="page-product">
     <h1 class="title-page-product">Tous les produits</h1>
     <div class="sort-by-filter">
-        <form action="{{@route('list-products')}}" id="form-sorting" method="get" enctype="multipart/form-data">
+        <form action="{{@route('list-products')}}" id="form-sorting" class="form-sorting" method="get" enctype="multipart/form-data">
             @csrf
             <select name="sorting" id="sorting" class="sort_by" data-default-sort="created-descending">
                 <!-- <option value="best-selling">Meilleures ventes</option>

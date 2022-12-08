@@ -676,6 +676,22 @@ button:focus {
     .title-page-product{
         font-size: 1.2rem;
     }
+
+    .sort-by-filter{
+        justify-content: flex-end;
+        margin-top: 1rem;
+    }
+
+    .form-sorting{
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+
+    .sort_by{
+        width: 80%;
+        margin-right: .5rem;
+    }
 }
 
 @media screen and (min-width: 768px) {
@@ -688,5 +704,10 @@ button:focus {
     }
     .title-page-product{
         font-size: 1.3rem;
+    }
+
+    .sort_by{
+        width: 60%;
+        margin-right: .7rem;
     }
 }
