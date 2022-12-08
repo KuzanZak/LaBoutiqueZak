@@ -31,7 +31,7 @@ class ListProductsController extends Controller
             'list-products',
             [
                 'products' => $products,
-                'pageJs' => "test",
+                'pageJs' => "listProducts",
                 'sorting' => $sorting
             ]
         );

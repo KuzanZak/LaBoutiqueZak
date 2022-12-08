@@ -1,6 +1,7 @@
 import './bootstrap';
 
 import Alpine from 'alpinejs';
+import { update } from 'lodash';
 
 window.Alpine = Alpine;
 
@@ -24,6 +25,46 @@ function displayHiddenColumns(){
             hidden.classList.remove("hidden");
         });
     };  
+}
+
+/* Add product cart */ 
+const addProduct =  document.querySelectorAll(".add-to-shopping-cart"); 
+const counter = document.getElementById("cart-nb");
+// const quantity = document.getElementById("add-qty");
+
+function updateCart() {
+    if (counter.value > 99) {
+        counter.innerText = "99+";
+        disableAddCart()
+        addProduct.forEach(cta => {
+            cta.removeEventListener("click", updateCart)
+        });
+        return; 
+    } 
+    if (counter.value < 1) return; 
+    
+    counter.innerText = 1; 
+    disableAddCart();
+
+    addProduct.forEach(cta => {
+        cta.removeEventListener("click", updateCart)
+    })
+}
+
+function disableAddCart(){
+    // addProduct.forEach(cta => {
+    //     cta.style.backgroundColor = "grey";
+    // })
+    // addProduct.forEach(function(event){
+    //     event.style.backgroundColor = "grey";
+    // })
+    addProduct.forEach(cta => {
+        cta.addEventListener("click", function(event){
+            if(event.target){
+                event.target.style.backgroundColor = "grey";
+            }
+        })
+    })
 }
 
 switch (body) {
@@ -59,20 +100,29 @@ switch (body) {
                 }
             })
             break; 
-        case 'test':
-
-            // document.getElementById('sort_by').addEventListener("click", function(event){
-            //     document.querySelectorAll('.list-products-items').forEach(product => {
-            //         console.log(product);
-            //     })
-            //     console.log(event.target.value);
-            // });
-            document.getElementById('sorting').addEventListener('change', function(event){
+        case 'listProducts':
+            document.getElementById('sorting').addEventListener('change', function(){
                 document.getElementById('form-sorting').submit();
-                const constante = localStorage.getItem("sort_by");
-                localStorage.setItem(constante, event.target.value);
-                console.log(constante); 
             })
+
+            // addProduct.forEach(cta => {
+            //     console.log(cta)
+            //     cta.addEventListener("click", updateCart)
+            // });
+
+            // addProduct.forEach(function(event){
+            //     event.addEventListener("click", updateCart)
+            // })
+            
+            addProduct.forEach(cta => {
+                cta.addEventListener("click", function(event){
+                    if(event.target){
+                        updateCart();
+                    }
+                })
+            })
+    
+
             break;             
     default:
       console.log(`Sorry, [data-js] is null!.`);
