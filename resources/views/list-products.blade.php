@@ -3,7 +3,7 @@
 @section('content')
 
 <section class="page-product">
-    <h1>Tous les produits</h1>
+    <h1 class="title-page-product">Tous les produits</h1>
     <div class="sort-by-filter">
         <form action="{{@route('list-products')}}" id="form-sorting" method="get" enctype="multipart/form-data">
             @csrf

@@ -587,6 +587,13 @@ button:focus {
 }
 
 /* List of Products */
+.title-page-product{
+    color: var(--white-color);
+    padding: .2rem .5rem;
+    font-weight: 500;
+    background-color: var(--primary-color);
+}
+
 .sort-by-filter{
     display:flex;
     justify-content: center;
@@ -666,11 +673,9 @@ button:focus {
     .page-product-description{
         font-size: 1.1rem;
     }
-    /* .sort-by-filter{
-        justify-content: flex-end;
-        margin-right: 1rem;
-    } */
-
+    .title-page-product{
+        font-size: 1.2rem;
+    }
 }
 
 @media screen and (min-width: 768px) {
@@ -680,5 +685,8 @@ button:focus {
     }
     .page-product-description{
         font-size: 1.2rem;
+    }
+    .title-page-product{
+        font-size: 1.3rem;
     }
 }
