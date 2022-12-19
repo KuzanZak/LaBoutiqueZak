@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\DetailedProductController;
 use App\Http\Controllers\HomePageController;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\ListProductsController;
@@ -24,6 +25,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomePageController::class, "index"])->name('homepage');
 
 Route::get('/products', [ListProductsController::class, "index"])->name('list-products');
+
+Route::get('/products_{idproduct}', [DetailedProductController::class, "index"])->name('detailed-products');
+
 
 Route::get('/dashboard/account', [AccountController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard/account');
 Route::get('/dashboard/account/edit_{iduser}', [AccountController::class, 'edit'])->middleware(['auth', 'verified'])->name('dashboard/account/edit');

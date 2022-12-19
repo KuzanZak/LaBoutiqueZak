@@ -23,7 +23,9 @@
     <ul class="list-products">
         @foreach($products as $product)
         <li class="list-products-items">
-            <img class="main-image" src="{{$product->mainImage->url}}" alt="{{$product->mainImage->alt}}">
+            <a href="{{ @route('detailed-products', $product->id)}}">
+                <img class="main-image" src="{{$product->mainImage->url}}" alt="{{$product->mainImage->alt}}">
+            </a>
             <div class="page-product-description">
                 <h2 class="title-product">{{$product->product_name}}</h2>
                 <div class="rating-product">Note : ??/5</div>
