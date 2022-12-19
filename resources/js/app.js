@@ -30,42 +30,24 @@ function displayHiddenColumns(){
 /* Add product cart */ 
 const addProduct =  document.querySelectorAll(".add-to-shopping-cart"); 
 const counter = document.getElementById("cart-nb");
-// const quantity = document.getElementById("add-qty");
+let quantity = 0;
 
-function updateCart() {
-    if (counter.value > 99) {
-        counter.innerText = "99+";
-        disableAddCart()
-        addProduct.forEach(cta => {
-            cta.removeEventListener("click", updateCart)
-        });
+/* Update cart number of the products page*/ 
+function updateCart(event){
+    quantity += 1;
+    if(quantity >= 99){
+        counter.innerText = "99+0";
+        event.target.classList.add("disableCart");
+        event.target.removeEventListener("click", updateCart);
         return; 
-    } 
-    if (counter.value < 1) return; 
-    
-    counter.innerText = 1; 
-    disableAddCart();
-
-    addProduct.forEach(cta => {
-        cta.removeEventListener("click", updateCart)
-    })
+    }
+    counter.innerText = quantity;
+    event.target.classList.add("disableCart");
+    event.target.removeEventListener("click", updateCart);
 }
 
-function disableAddCart(){
-    // addProduct.forEach(cta => {
-    //     cta.style.backgroundColor = "grey";
-    // })
-    // addProduct.forEach(function(event){
-    //     event.style.backgroundColor = "grey";
-    // })
-    addProduct.forEach(cta => {
-        cta.addEventListener("click", function(event){
-            if(event.target){
-                event.target.style.backgroundColor = "grey";
-            }
-        })
-    })
-}
+/* Switch css button add-product */
+
 
 switch (body) {
     case 'userJs':
@@ -105,25 +87,10 @@ switch (body) {
                 document.getElementById('form-sorting').submit();
             })
 
-            // addProduct.forEach(cta => {
-            //     console.log(cta)
-            //     cta.addEventListener("click", updateCart)
-            // });
-
-            // addProduct.forEach(function(event){
-            //     event.addEventListener("click", updateCart)
-            // })
-            
             addProduct.forEach(cta => {
-                cta.addEventListener("click", function(event){
-                    if(event.target){
-                        updateCart();
-                    }
-                })
-            })
-    
-
-            break;             
+                cta.addEventListener("click", updateCart)
+            });
+            break;  
     default:
       console.log(`Sorry, [data-js] is null!.`);
   }

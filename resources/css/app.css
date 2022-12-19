@@ -665,6 +665,10 @@ button:focus {
     font-size: 1.2rem;
 }
 
+.disableCart{
+    background-color: grey;
+}
+
 @media screen and (min-width: 520px) {
     .list-products{
         display: grid;
