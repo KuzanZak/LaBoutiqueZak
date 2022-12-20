@@ -15,12 +15,6 @@ class DetailedProductController extends Controller
     public function index($id)
     {
         $product = Product::find($id);
-        $mainurl = "";
-        $mainalt = "";
-        $url1 = "";
-        $alt1 = "";
-        $url2 = "";
-        $alt2 = "";
         foreach ($product->images as $image) {
 
             if (str_contains($image->url, "main")) $mainurl = $image->url;
@@ -33,7 +27,7 @@ class DetailedProductController extends Controller
         return view(
             'detailed-product',
             [
-                'pageJs' => "",
+                'pageJs' => "detailed-product",
                 'name' => $product->product_name,
                 'stock' => $product->stock,
                 'price' => $product->price,

@@ -46,8 +46,47 @@ function updateCart(event){
     event.target.removeEventListener("click", updateCart);
 }
 
-/* Switch css button add-product */
 
+// DISPLAY IMG ON MOBILE //
+const displayImg = document.getElementById("display-img");
+const img1 = document.getElementById("img-1");
+const img2 = document.getElementById("img-2");
+const img3 = document.getElementById("img-3");
+
+let countImg= 1; 
+
+/* Display the right img */ 
+function displayMainImg(){
+    document.getElementById("next-img").addEventListener("click", function(){
+        countImg += 1;
+        console.log(countImg);
+        if(countImg == 2) {
+            displayImg.src = img2.src;
+        } 
+        if (countImg == 3) {
+            displayImg.src = img3.src;
+            document.getElementById("next-img").classList.add("hidden");
+        }
+        if(countImg >= 1 && countImg <= 2 ) document.getElementById("last-img").classList.remove("hidden");
+
+    })
+    document.getElementById("last-img").addEventListener("click", function(event){
+        countImg--;
+        console.log(countImg);
+        if (countImg <=1) document.getElementById("last-img").classList.add("hidden");
+        if (countImg == 1) {
+            displayImg.src = img1.src;
+        }
+        if(countImg == 2) {
+            displayImg.src = img2.src;
+        } 
+        if (countImg == 3) {
+            displayImg.src = img3.src;
+        } 
+        if(countImg >= 1 && countImg <= 2 ) document.getElementById("next-img").classList.remove("hidden");
+
+    })
+}
 
 switch (body) {
     case 'userJs':
@@ -91,6 +130,9 @@ switch (body) {
                 cta.addEventListener("click", updateCart)
             });
             break;  
+        case 'detailed-product':
+            displayMainImg();
+        break;  
     default:
       console.log(`Sorry, [data-js] is null!.`);
   }

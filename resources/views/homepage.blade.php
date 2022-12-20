@@ -13,7 +13,7 @@
 <body data-js="@yield('pageJs')">
     <header class="header">
         <div class="header-content">
-            <a href="#" class="header-link-logo">
+            <a href="{{ @route('list-products')}}" class="header-link-logo">
                 <img class="header-logo" src="{{ URL::asset('/img/logo-transparent-png.png') }}" alt="la boutique logo">
             </a>
             <a class="account" href="{{ @route('register') }}">Mon compte</a>
