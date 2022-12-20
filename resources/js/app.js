@@ -141,6 +141,15 @@ switch (body) {
         case 'detailed-product':
             displayMainImg();
             hoverDisplayImg();
+            if(window.innerWidth >= 768)document.getElementById("titles-product").appendChild(document.getElementById("price"));
+
+            window.addEventListener("resize", function(e){
+                if (screen.width >= 768 ) {
+                    document.getElementById("titles-product").appendChild(document.getElementById("price"))
+                } else {
+                    document.getElementById("test").insertBefore(document.getElementById("price"), document.getElementById("add"));
+                }
+            })
         break;  
     default:
       console.log(`Sorry, [data-js] is null!.`);
