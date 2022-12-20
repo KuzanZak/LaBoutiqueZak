@@ -55,11 +55,10 @@ const img3 = document.getElementById("img-3");
 
 let countImg= 1; 
 
-/* Display the right img */ 
+/* Display the right img on mobile/middle screen*/ 
 function displayMainImg(){
     document.getElementById("next-img").addEventListener("click", function(){
         countImg += 1;
-        console.log(countImg);
         if(countImg == 2) {
             displayImg.src = img2.src;
         } 
@@ -72,7 +71,6 @@ function displayMainImg(){
     })
     document.getElementById("last-img").addEventListener("click", function(event){
         countImg--;
-        console.log(countImg);
         if (countImg <=1) document.getElementById("last-img").classList.add("hidden");
         if (countImg == 1) {
             displayImg.src = img1.src;
@@ -85,6 +83,16 @@ function displayMainImg(){
         } 
         if(countImg >= 1 && countImg <= 2 ) document.getElementById("next-img").classList.remove("hidden");
 
+    })
+}
+
+ // HOVER ON DESKTOP // 
+ function hoverDisplayImg(){
+    const thumbs = document.getElementById("thumbs");
+
+    thumbs.addEventListener("mouseover", function(event){
+       if (!event.target.classList.contains("thumbs-img")) return;
+       displayImg.src = event.target.getAttribute("src")
     })
 }
 
@@ -132,6 +140,7 @@ switch (body) {
             break;  
         case 'detailed-product':
             displayMainImg();
+            hoverDisplayImg();
         break;  
     default:
       console.log(`Sorry, [data-js] is null!.`);

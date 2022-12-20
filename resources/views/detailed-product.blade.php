@@ -31,9 +31,11 @@
         <input id="add-qty" class="add-qty" type="text" value="1">
         <button id="add-cta" class="add-cta" type="button">Ajouter au panier</button>
     </div>
+    <div class="description">
+        <h2 class="subtitle-description">Description : </h2>
+        <p>{{$description}}</p>
+    </div>
 </section>
-<div>{{$stock > 0 ? 'En stock' : 'Indisponible'}}</div>
-<div>{{$price}}€</div>
-<p>{{$description}}</p>
+
 
 @endsection

@@ -729,6 +729,12 @@ button:focus {
     margin: 0 auto;
 }
 
+.price{
+    color: var(--red);
+    font-size: 2rem;
+    font-weight: 500;
+}
+
 .page-pics {
     display: flex;
     flex-direction: column;
@@ -739,7 +745,6 @@ button:focus {
 }  
 
 /* PICTURES */
-
 .pictures {
     position: relative;
     display: flex;
@@ -790,7 +795,7 @@ button:focus {
 @media screen and (min-width: 768px) {
     .thumbs {
         display: grid;
-        grid-template-columns: repeat(5, 1fr);
+        grid-template-columns: repeat(3, 1fr);
         width: 100%;
     }
     .thumbs-itm {
@@ -800,4 +805,59 @@ button:focus {
         width: 100%;
     }
 }
+/* ADD TO CART */
+.add {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 4rem;
+    gap: 1rem;
+    width: 100%;
+}
+.add-qty {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    aspect-ratio: 1/1;
+    padding: .5rem;
+    border: .25rem solid var(--primary-color);
+    text-align: center;
+    font-size: 1.2rem;
+}
 
+.add-cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 0 3rem;
+    border: .25rem solid var(--primary-color);
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    background-color: var(--primary-color);
+    cursor:pointer;
+    color: var(--white-color);
+
+}
+.add-cta:hover {
+    background-color: var(--white-color);
+    color: var(--primary-color);
+    border: .25rem solid var(--primary-color);
+}
+
+/* Description product */ 
+.description{
+    padding: 1rem;
+    border: .25rem solid var(--primary-color);
+    margin: 1rem;
+    font-size: 1.1rem;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.subtitle-description{
+    text-decoration: underline;
+}
