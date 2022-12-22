@@ -933,3 +933,11 @@ button:focus {
 .subtitle-description{
     text-decoration: underline;
 }
+
+/* Cart-page */
+.title-cart-page{
+    color: var(--white-color);
+    padding: 0.2rem 1rem;
+    font-weight: 500;
+    background-color: var(--primary-color);
+}

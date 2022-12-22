@@ -17,7 +17,7 @@
                 <img class="header-logo" src="{{ URL::asset('/img/logo-transparent-png.png') }}" alt="la boutique logo">
             </a>
             <a class="account" href="{{ @route('register') }}">Mon compte</a>
-            <a class="cart" href="#">
+            <a class="cart" href="{{ @route('cart')}}">
                 <img class="cart-img" src="{{ URL::asset('/img/cart_white.png') }}" alt="panier">
                 <span id="cart-nb" class="cart-nb">0</span>
             </a>

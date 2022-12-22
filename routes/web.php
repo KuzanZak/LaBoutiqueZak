@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AccountController;
+use App\Http\Controllers\CartPageController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DetailedProductController;
 use App\Http\Controllers\HomePageController;
@@ -27,6 +28,9 @@ Route::get('/', [HomePageController::class, "index"])->name('homepage');
 Route::get('/products', [ListProductsController::class, "index"])->name('list-products');
 
 Route::get('/products_{idproduct}', [DetailedProductController::class, "index"])->name('detailed-products');
+
+Route::get('/cart', [CartPageController::class, "index"])->name('cart');
+
 
 
 Route::get('/dashboard/account', [AccountController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard/account');
