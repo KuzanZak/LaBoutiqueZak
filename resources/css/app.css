@@ -734,7 +734,7 @@ button:focus {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
+    /* justify-content: flex-start; */
     gap: 2rem;
     padding-bottom: 2rem;
 }  
@@ -807,10 +807,10 @@ button:focus {
 }
 
 .pictures-prev {
-    left: 1rem;
+    left: 2rem;
 }
 .pictures-next {
-    right: 1rem;
+    right: 2rem;
 }
 
 .pictures-img {
@@ -824,14 +824,19 @@ button:focus {
         max-width: 600px;
     }
     .pictures-img {
-        width: 70%;
+        width: 60%;
         aspect-ratio: 1/1;
     }
     .pictures-prev {
-        left: 5rem;
+        /* left: 5rem; */
+        left: calc(25% - 4rem);
+
     }
     .pictures-next {
-        right: 5rem;
+        right: calc(25% - 4rem);
+    }
+    .description{
+        width: 80%;
     }
 }
 
