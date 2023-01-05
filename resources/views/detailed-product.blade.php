@@ -10,7 +10,7 @@
     </div>
     <div id="test" class="test">
         <div class="pictures">
-            <button id="last-img" type="button" class="pictures-handler pictures-prev hidden">
+            <button id="last-img" type="button" class="pictures-handler pictures-prev hiddenImp">
                 <img src="{{ URL::asset('/img/previous.png') }}" alt="previous">
             </button>
             <img id="display-img" class="pictures-img" src="{{$mainurl}}" alt="{{$mainalt}}">

@@ -22,7 +22,7 @@ function checkedBox($checkbox){
 function displayHiddenColumns(){
     if (screen.width >= 768) {
         document.querySelectorAll('td.selected').forEach(hidden=>{
-            hidden.classList.remove("hidden");
+            hidden.classList.remove("hiddenImp");
         });
     };  
 }
@@ -64,14 +64,14 @@ function displayMainImg(){
         } 
         if (countImg == 3) {
             displayImg.src = img3.src;
-            document.getElementById("next-img").classList.add("hidden");
+            document.getElementById("next-img").classList.add("hiddenImp");
         }
-        if(countImg >= 1 && countImg <= 2 ) document.getElementById("last-img").classList.remove("hidden");
+        if(countImg >= 1 && countImg <= 2 ) document.getElementById("last-img").classList.remove("hiddenImp");
 
     })
     document.getElementById("last-img").addEventListener("click", function(event){
         countImg--;
-        if (countImg <=1) document.getElementById("last-img").classList.add("hidden");
+        if (countImg <=1) document.getElementById("last-img").classList.add("hiddenImp");
         if (countImg == 1) {
             displayImg.src = img1.src;
         }
@@ -81,7 +81,7 @@ function displayMainImg(){
         if (countImg == 3) {
             displayImg.src = img3.src;
         } 
-        if(countImg >= 1 && countImg <= 2 ) document.getElementById("next-img").classList.remove("hidden");
+        if(countImg >= 1 && countImg <= 2 ) document.getElementById("next-img").classList.remove("hiddenImp");
 
     })
 }
@@ -99,8 +99,8 @@ function displayMainImg(){
 switch (body) {
     case 'userJs':
         document.getElementById('link-list-users').addEventListener("click", function(e){
-            document.getElementById('list-dashboard-users').classList.toggle('hidden');
-            document.getElementById('list-title-dashboard-users').classList.toggle('hidden');
+            document.getElementById('list-dashboard-users').classList.toggle('hiddenImp');
+            document.getElementById('list-title-dashboard-users').classList.toggle('hiddenImp');
         });      
         break;
     case 'images':
@@ -113,8 +113,8 @@ switch (body) {
         break;
     case 'changeImages':
         document.getElementById('change-button').addEventListener("click", function(e){
-            document.getElementById('image-update').classList.toggle('hidden');
-            document.getElementById('file').classList.toggle('hidden');
+            document.getElementById('image-update').classList.toggle('hiddenImp');
+            document.getElementById('file').classList.toggle('hiddenImp');
             document.getElementById('submit').value = "Update"
         });
         break;  
@@ -124,7 +124,7 @@ switch (body) {
                 displayHiddenColumns(); 
                 if (screen.width < 768 ) {
                     document.querySelectorAll('td.selected').forEach(hidden=>{
-                        hidden.classList.add("hidden");
+                        hidden.classList.add("hiddenImp");
                     })
                 }
             })

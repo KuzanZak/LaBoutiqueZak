@@ -15,11 +15,11 @@
         <tr class="header-table">
             <td class="little-cells-header">Id</td>
             <td class="middle-cells-header">Nom</td>
-            <td class="big-cells-header selected hidden">Description</td>
+            <td class="big-cells-header selected hiddenImp">Description</td>
             <td class="little-cells-header">Prix</td>
             <td class="little-cells-header">Quantité</td>
-            <td class="middle-cells-header selected hidden">Catégorie</td>
-            <td class="little-cells-header selected hidden">Image principale</td>
+            <td class="middle-cells-header selected hiddenImp">Catégorie</td>
+            <td class="little-cells-header selected hiddenImp">Image principale</td>
             @if($admin === 1)
             <td class="little-cells-header"></td>
             @endif
@@ -28,11 +28,11 @@
         <tr class="content-table">
             <td class="little-cells">{{ $product->id }}</td>
             <td class="middle-cells">{{ $product->product_name }}</td>
-            <td class="big-cells selected hidden">{{ $product->description}}</td>
+            <td class="big-cells selected hiddenImp">{{ $product->description}}</td>
             <td class="little-cells">{{ $product->price }}€</td>
             <td class="little-cells">{{ $product->stock }}</td>
-            <td class="middle-cells selected hidden">{{ $product->category->category_name}}</td>
-            <td class="little-cells selected hidden">{{ $product->image_id }}</td>
+            <td class="middle-cells selected hiddenImp">{{ $product->category->category_name}}</td>
+            <td class="little-cells selected hiddenImp">{{ $product->image_id }}</td>
             @if($admin === 1)
             <td class="little-cells">
                 <a href="{{ @route('dashboard/product/delete', $product->id)}}" class="links">Supprimer </a>/

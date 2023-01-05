@@ -98,7 +98,7 @@ class ImageController extends Controller
                 'edit' => 'update',
                 'image' => asset($image->url),
                 'pageJs' => "changeImages",
-                'hidden' => "hidden",
+                'hidden' => "hiddenImp",
                 'value' => "Actualiser"
             ]
         );

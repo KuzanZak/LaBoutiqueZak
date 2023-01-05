@@ -1,6 +1,6 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+    <x-slot name="header" class="mainSubtitle-dashboard">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight subHeader-title-dashboard">
             {{ __('Mon compte') }}
         </h2>
     </x-slot>
