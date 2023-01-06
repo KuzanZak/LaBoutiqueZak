@@ -387,7 +387,7 @@ button:focus {
 }
 
 .hiddenImp{
-    display: none;
+    display: none !important;
 }
 .display{
     display: flex;
