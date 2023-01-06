@@ -290,6 +290,13 @@ button:focus {
     color: var(--white-color) !important;
 }
 
+.link-homepage{
+    background-color: #1f2937;
+    color: var(--white-color);
+    padding: .4rem;
+    border-radius: .5rem;
+}
+
 .title-dashboard{
     text-align: center;
     font-size: 1.5rem;
@@ -304,7 +311,7 @@ button:focus {
     margin-bottom: 2rem;
 }
 
-.subHeader-dashboard{
+.subHeader-dashboard, .form-register{
     background-color: var(--primary-color);
 }
 .content-add-link{

@@ -2,7 +2,9 @@
     <x-auth-card>
         <x-slot name="logo">
             <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
+                <!-- <x-application-logo class="w-20 h-20 fill-current text-gray-500" /> -->
+                <img class="w-15 h-10 fill-current text-gray-500" src="{{ URL::asset('/img/logo-transparent-png.png') }}" alt="la boutique logo">
+
             </a>
         </x-slot>
 
@@ -50,6 +52,6 @@
                 </x-primary-button>
             </div>
         </form>
-        <a class="link-home" href="{{ @route('homepage') }}">Page d'accueil</a>
+        <a class="link-homepage" href="{{ @route('list-products') }}">Page d'accueil</a>
     </x-auth-card>
 </x-guest-layout>
