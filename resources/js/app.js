@@ -7,7 +7,8 @@ window.Alpine = Alpine;
 
 Alpine.start();
 
-const body = document.body.getAttribute('data-js'); 
+const body = document.body.dataset.js;
+
 
 /* Get the value of the checked chekbox to make the radio button valid   */
 function checkedBox($checkbox){
