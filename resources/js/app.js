@@ -56,7 +56,7 @@ const img3 = document.getElementById("img-3");
 
 let countImg= 1; 
 
-/* Display the right img on mobile/middle screen*/ 
+// Display the right img on mobile/middle screen
 function displayMainImg(){
     document.getElementById("next-img").addEventListener("click", function(){
         countImg += 1;
@@ -88,29 +88,29 @@ function displayMainImg(){
 }
 
  // HOVER ON DESKTOP // 
- function hoverDisplayImg(){
+//  display selected image when user hovers mouse over image thumbnails 
+function hoverDisplayImg(){
     const thumbs = document.getElementById("thumbs");
 
     thumbs.addEventListener("mouseover", function(event){
-       if (!event.target.classList.contains("thumbs-img")) return;
-       displayImg.src = event.target.getAttribute("src")
+        if (!event.target.classList.contains("thumbs-img")) return;
+        displayImg.src = event.target.getAttribute("src")
     })
 }
 
 switch (body) {
-    case 'userJs':
-        document.getElementById('link-list-users').addEventListener("click", function(e){
-            document.getElementById('list-dashboard-users').classList.toggle('hiddenImp');
-            document.getElementById('list-title-dashboard-users').classList.toggle('hiddenImp');
-        });      
-        break;
-    case 'images':
-        document.querySelectorAll('.checkbox-image').forEach(check => {
-            document.querySelectorAll('.radio-image').forEach(radio => radio.setAttribute("disabled",""));
-            check.addEventListener("click", function() {
-                checkedBox(check);
-            });
-        });
+    case 'detailed-product':
+        displayMainImg();
+        hoverDisplayImg();
+        if(window.innerWidth >= 768)document.getElementById("titles-product").appendChild(document.getElementById("price"));
+    
+        window.addEventListener("resize", function(e){
+            if (screen.width >= 768 ) {
+                document.getElementById("titles-product").appendChild(document.getElementById("price"))
+            } else {
+                document.getElementById("test").insertBefore(document.getElementById("price"), document.getElementById("add"));
+            }
+        })
         break;
     case 'changeImages':
         document.getElementById('change-button').addEventListener("click", function(e){
@@ -130,27 +130,27 @@ switch (body) {
             }
         })
         break; 
+    case 'images':
+        document.querySelectorAll('.checkbox-image').forEach(check => {
+            document.querySelectorAll('.radio-image').forEach(radio => radio.setAttribute("disabled",""));
+            check.addEventListener("click", function() {
+                checkedBox(check);
+            });
+        });
+        break;
     case 'listProducts':
         document.getElementById('sorting').addEventListener('change', function(){
             document.getElementById('form-sorting').submit();
         })
-
         addProduct.forEach(cta => {
             cta.addEventListener("click", updateCart)
         });
         break;  
-    case 'detailed-product':
-        displayMainImg();
-        hoverDisplayImg();
-        if(window.innerWidth >= 768)document.getElementById("titles-product").appendChild(document.getElementById("price"));
-
-        window.addEventListener("resize", function(e){
-            if (screen.width >= 768 ) {
-                document.getElementById("titles-product").appendChild(document.getElementById("price"))
-            } else {
-                document.getElementById("test").insertBefore(document.getElementById("price"), document.getElementById("add"));
-            }
-        })
+    case 'userJs':
+        document.getElementById('link-list-users').addEventListener("click", function(e){
+            document.getElementById('list-dashboard-users').classList.toggle('hiddenImp');
+            document.getElementById('list-title-dashboard-users').classList.toggle('hiddenImp');
+        });      
         break;  
     default:
       console.log(`Sorry, [data-js] is null!.`);

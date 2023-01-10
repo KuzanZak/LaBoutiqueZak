@@ -1,7 +1,7 @@
 <x-guest-layout>
     <x-auth-card>
         <x-slot name="logo">
-            <a href="/">
+            <a href="{{ @route('list-products')}}">
                 <!-- <x-application-logo class="w-20 h-20 fill-current text-gray-500" /> -->
                 <img class="w-15 h-10 fill-current text-gray-500" src="{{ URL::asset('/img/logo-transparent-png.png') }}" alt="la boutique logo">
 
