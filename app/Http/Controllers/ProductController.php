@@ -39,7 +39,8 @@ class ProductController extends Controller
             "dashboard-product-form",
             [
                 'categories' => Category::all()->sortBy('id'),
-                'images' => Image::whereNull('product_id')->get(),
+                // 'images' => Image::whereNull('product_id')->get(),
+                'images' => Image::where('product_id', '=', null,)->orWhere('product_id', '=', 0)->get(),
                 'action' => route('dashboard/product/add'),
                 'pageJs' => "images",
                 'edit' => "add",
@@ -182,6 +183,7 @@ class ProductController extends Controller
         $product = Product::find($id);
         foreach ($product->images as $image) {
             $image->product_id = 0;
+            $image->save();
         };
         $product->delete();
         return Redirect::route('dashboard/product');
