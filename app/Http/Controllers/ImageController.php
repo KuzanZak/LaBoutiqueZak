@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Storage;
 class ImageController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display the listing of images.
      *
      * @return \Illuminate\Http\Response
      */
@@ -47,7 +47,7 @@ class ImageController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly image in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response

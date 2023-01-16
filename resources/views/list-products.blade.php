@@ -7,17 +7,16 @@
     <div class="sort-by-filter">
         <form action="{{@route('list-products')}}" id="form-sorting" class="form-sorting" method="get" enctype="multipart/form-data">
             @csrf
-            <select name="sorting" id="sorting" class="sort_by" data-default-sort="created-descending">
-                <!-- <option value="best-selling">Meilleures ventes</option>
-            <option value="title-ascending">Par ordre alphabétique : A-Z</option>
-            <option value="title-descending">Par ordre alphabétique : Z-A</option> -->
+            <select name="sorting" id="sorting" class="sort_by">
                 <option value="">Trier par</option>
                 <option value="price-ascending" {{($sorting == 'price-ascending') ? 'selected' : ''}}>Par prix : Ordre croissant</option>
                 <option value="price-descending" {{($sorting == 'price-descending') ? 'selected' : ''}}>Par prix : Ordre décroissant</option>
                 <option value="created-ascending" {{($sorting == 'created-ascending') ? 'selected' : ''}}>Par date : du moins récent au plus récent</option>
                 <option value="created-descending" {{($sorting == 'created-descending') ? 'selected' : ''}}>Par date : du plus récent au moins récent</option>
+                <!-- <option value="best-selling">Meilleures ventes</option>
+            <option value="title-ascending">Par ordre alphabétique : A-Z</option>
+            <option value="title-descending">Par ordre alphabétique : Z-A</option> -->
             </select>
-            <!-- <button>submit</button> -->
         </form>
     </div>
     <ul class="list-products">

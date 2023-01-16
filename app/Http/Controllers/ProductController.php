@@ -39,7 +39,6 @@ class ProductController extends Controller
             "dashboard-product-form",
             [
                 'categories' => Category::all()->sortBy('id'),
-                // 'images' => Image::whereNull('product_id')->get(),
                 'images' => Image::where('product_id', '=', null,)->orWhere('product_id', '=', 0)->get(),
                 'action' => route('dashboard/product/add'),
                 'pageJs' => "images",

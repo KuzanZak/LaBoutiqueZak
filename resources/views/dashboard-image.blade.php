@@ -23,7 +23,6 @@
     @foreach($images as $image)
     <li class="list-items-dashboard">
         <p><img src="{{asset($image->url)}}"></p>
-        <!-- /laboutiquezak/laboutique/storage/app/{{$image->url}} -->
         <p class="data-dashboard"><span class="span-title-dashboard">Id :</span> {{ $image->id }}</p>
         @if($admin === 1)
         <p><span class="span-title-dashboard">Supprimé :</span>
