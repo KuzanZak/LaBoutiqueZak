@@ -393,6 +393,10 @@ button:focus {
     margin: 0 auto;
 }
 
+.image{
+    margin: 0 auto;
+}
+
 .hiddenImp{
     display: none !important;
 }
@@ -424,7 +428,9 @@ button:focus {
     .input-dashboard{
         margin: 0;
     }
-
+    .image{
+        width: 50%;
+    }
     .image-update{
         width: 40%;
     }
@@ -452,6 +458,10 @@ button:focus {
     .button-dashboard{
         width: 30%;
     }
+    .image{
+        width: 40%;
+    }
+
     .image-update{
         width: 35%;
     }

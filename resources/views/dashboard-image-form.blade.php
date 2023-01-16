@@ -26,7 +26,7 @@
             </label>
             <input class="input-dashboard {{$hidden}}" type="file" id="file" name="file" value="">
             @if ($edit === 'update')
-            <img id="image-update" src="{{$image}}" alt="image">
+            <img id="image-update" class="image" src="{{$image}}" alt="image">
             <button class="change-button" type="button" id="change-button">changer</button>
             @endif
         </li>

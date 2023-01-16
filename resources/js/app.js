@@ -22,8 +22,8 @@ function checkedBox($checkbox){
 /* Remove hidden class from table columns when screen width > 768 px */  
 function displayHiddenColumns(){
     if (screen.width >= 768) {
-        document.querySelectorAll('td.selected').forEach(hidden=>{
-            hidden.classList.remove("hiddenImp");
+        document.querySelectorAll('td.selected').forEach(td=>{
+            td.classList.remove("hiddenImp");
         });
     };  
 }
@@ -124,8 +124,8 @@ switch (body) {
         window.addEventListener("resize", function(e){
             displayHiddenColumns(); 
             if (screen.width < 768 ) {
-                document.querySelectorAll('td.selected').forEach(hidden=>{
-                    hidden.classList.add("hiddenImp");
+                document.querySelectorAll('td.selected').forEach(td=>{
+                    td.classList.add("hiddenImp");
                 })
             }
         })
